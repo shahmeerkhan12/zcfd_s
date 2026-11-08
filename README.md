@@ -176,6 +176,3 @@ npm run build
 
 Built at a hackathon by Lada Koicheva, Abdullah, Arshad and Egor Zhmurov.
 
-## License
-
-No license file is included yet. Add one (for example MIT) before sharing the project publicly.
