@@ -1,7 +1,14 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+<<<<<<< HEAD
 import Database from 'better-sqlite3'
+=======
+import { DatabaseSync } from 'node:sqlite'
+import { menu } from '../../data-mock/menu.js'
+
+const baseMenuIds = new Set(menu.map((item) => item.id))
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
 
 const databaseDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../data')
 const databasePath = process.env.DATABASE_PATH || path.join(databaseDirectory, 'food-delivery.sqlite')
@@ -9,8 +16,13 @@ const migrationsDirectory = path.join(path.dirname(fileURLToPath(import.meta.url
 
 fs.mkdirSync(databaseDirectory, { recursive: true })
 
+<<<<<<< HEAD
 export const database = new Database(databasePath)
 database.pragma('foreign_keys = ON')
+=======
+export const database = new DatabaseSync(databasePath)
+database.exec('PRAGMA foreign_keys = ON')
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
 database.exec('CREATE TABLE IF NOT EXISTS schema_migrations (version INTEGER PRIMARY KEY, applied_at TEXT NOT NULL)')
 
 function applyMigrations() {
@@ -25,12 +37,24 @@ function applyMigrations() {
     const version = Number.parseInt(migration, 10)
     if (appliedVersions.has(version)) continue
     const sql = fs.readFileSync(path.join(migrationsDirectory, migration), 'utf8')
+<<<<<<< HEAD
     const apply = database.transaction(() => {
       database.exec(sql)
       database.prepare('INSERT INTO schema_migrations (version, applied_at) VALUES (?, ?)')
         .run(version, new Date().toISOString())
     })
     apply()
+=======
+    database.exec('BEGIN')
+    try {
+      database.exec(sql)
+      database.prepare('INSERT INTO schema_migrations (version, applied_at) VALUES (?, ?)').run(version, new Date().toISOString())
+      database.exec('COMMIT')
+    } catch (err) {
+      database.exec('ROLLBACK')
+      throw err
+    }
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   }
 }
 
@@ -38,19 +62,34 @@ applyMigrations()
 
 export function seedDatabase(menu) {
   const insertRestaurant = database.prepare(`
+<<<<<<< HEAD
     INSERT INTO restaurants (name, rating, is_open)
     VALUES (@restaurant, @rating, 1)
     ON CONFLICT(name) DO UPDATE SET rating = excluded.rating, is_open = 1
+=======
+    INSERT INTO restaurants (name, rating, is_open, address, lat, lng)
+    VALUES (?, ?, 1, ?, ?, ?)
+    ON CONFLICT(name) DO UPDATE SET
+      rating = excluded.rating,
+      is_open = 1,
+      address = excluded.address,
+      lat = excluded.lat,
+      lng = excluded.lng
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   `)
   const findRestaurant = database.prepare('SELECT id FROM restaurants WHERE name = ?')
   const insertMenuItem = database.prepare(`
     INSERT INTO menu_items (
       id, restaurant_id, title, description, price, prep_time_minutes,
       rating, image, tag, keywords, is_available
+<<<<<<< HEAD
     ) VALUES (
       @id, @restaurantId, @name, @description, @price, @prepTimeMinutes,
       @rating, @image, @tag, @keywords, 1
     )
+=======
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
     ON CONFLICT(id) DO UPDATE SET
       restaurant_id = excluded.restaurant_id,
       title = excluded.title,
@@ -64,12 +103,18 @@ export function seedDatabase(menu) {
       is_available = 1
   `)
 
+<<<<<<< HEAD
   database.transaction(() => {
+=======
+  database.exec('BEGIN')
+  try {
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
     for (const item of menu) {
       const prepTimeMinutes = Number.parseInt(item.time, 10)
       if (!Number.isInteger(prepTimeMinutes) || prepTimeMinutes <= 0) {
         throw new Error(`Invalid preparation time for menu item "${item.id}".`)
       }
+<<<<<<< HEAD
       insertRestaurant.run({ restaurant: item.restaurant, rating: Number(item.rating) })
       const restaurant = findRestaurant.get(item.restaurant)
       insertMenuItem.run({
@@ -80,11 +125,44 @@ export function seedDatabase(menu) {
       })
     }
   })()
+=======
+      insertRestaurant.run(
+        item.restaurant,
+        Number(item.rating),
+        item.address ?? 'Kyiv, Ukraine',
+        item.lat ?? 50.4501,
+        item.lng ?? 30.5234,
+      )
+      const restaurant = findRestaurant.get(item.restaurant)
+      insertMenuItem.run(
+        item.id,
+        restaurant.id,
+        item.name,
+        item.description,
+        item.price,
+        prepTimeMinutes,
+        Number(item.rating),
+        item.image ?? null,
+        item.tag ?? null,
+        JSON.stringify(item.keywords),
+      )
+    }
+    database.exec('COMMIT')
+  } catch (err) {
+    database.exec('ROLLBACK')
+    throw err
+  }
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
 }
 
 export function listAvailableMenuItems() {
   const rows = database.prepare(`
     SELECT menu_items.id, menu_items.title AS name, restaurants.name AS restaurant,
+<<<<<<< HEAD
+=======
+      restaurants.address AS restaurantAddress,
+      restaurants.lat AS restaurantLat, restaurants.lng AS restaurantLng,
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
       menu_items.description, menu_items.price, menu_items.rating,
       menu_items.prep_time_minutes, menu_items.image, menu_items.tag, menu_items.keywords
     FROM menu_items
@@ -93,7 +171,11 @@ export function listAvailableMenuItems() {
     ORDER BY menu_items.id
   `).all()
 
+<<<<<<< HEAD
   return rows.map((item) => ({
+=======
+  return rows.filter((item) => baseMenuIds.has(item.id)).map((item) => ({
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
     ...item,
     rating: String(item.rating),
     time: `${item.prep_time_minutes}–${item.prep_time_minutes + 10} min`,
@@ -102,6 +184,10 @@ export function listAvailableMenuItems() {
 }
 
 export function findMenuItem(id) {
+<<<<<<< HEAD
+=======
+  if (!baseMenuIds.has(id)) return undefined
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   return database.prepare(`
     SELECT menu_items.id, menu_items.title AS name, restaurants.name AS restaurant,
       restaurants.id AS restaurant_id, menu_items.price
@@ -116,11 +202,28 @@ export function insertOrder(order) {
     INSERT INTO orders (
       tracking_number, customer_name, address, payment_method, payment_status,
       status, restaurant_id, menu_item_id, total_amount, created_at, created_at_ms
+<<<<<<< HEAD
     ) VALUES (
       @trackingNumber, @customerName, @address, @paymentMethod, @paymentStatus,
       @status, @restaurantId, @menuItemId, @totalAmount, @createdAt, @createdAtMs
     )
   `).run(order)
+=======
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(
+    order.trackingNumber,
+    order.customerName,
+    order.address,
+    order.paymentMethod,
+    order.paymentStatus,
+    order.status,
+    order.restaurantId,
+    order.menuItemId,
+    order.totalAmount,
+    order.createdAt,
+    order.createdAtMs,
+  )
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
 }
 
 export function findOrder(trackingNumber) {

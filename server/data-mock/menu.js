@@ -1,8 +1,20 @@
+<<<<<<< HEAD
 export const menu = [
+=======
+/**
+ * Mock menu data — 20 real Kyiv restaurants with accurate GPS coordinates.
+ * Spread across all major city neighbourhoods.
+ * LLM generates unique menus per restaurant per query at runtime.
+ * These records serve as the geo-search fallback when external APIs are unavailable.
+ */
+export const menu = [
+  // ── Podil ────────────────────────────────────────────────────────────────────
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   {
     id: 'mushroom-pasta',
     name: 'Wild Mushroom Pasta',
     restaurant: 'The Cozy Table',
+<<<<<<< HEAD
     description: 'Pappardelle, creamy sauce, aged parmesan',
     price: 14.9,
     rating: '4.9',
@@ -34,11 +46,21 @@ export const menu = [
     image: 'photo-1467003909585-2f8a72700288',
     tag: 'Chef’s pick',
     keywords: ['salmon', 'fish', 'rice', 'dinner'],
+=======
+    address: 'Kontraktova Sq 4, Podil, Kyiv',
+    lat: 50.4637, lng: 30.5164,
+    description: 'Pappardelle, creamy sauce, aged parmesan',
+    price: 14.9, rating: '4.9', time: '25',
+    image: 'photo-1473093295043-cdd812d0e601',
+    tag: 'Weekly favorite',
+    keywords: ['pasta', 'mushroom', 'creamy', 'vegetarian', 'dinner', 'italian'],
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   },
   {
     id: 'tomato-soup',
     name: 'Tomato Basil Soup',
     restaurant: 'The Cozy Table',
+<<<<<<< HEAD
     description: 'Tomatoes, cream, and crispy ciabatta',
     price: 9.5,
     rating: '4.7',
@@ -47,10 +69,75 @@ export const menu = [
     tag: 'Comfort classic',
     keywords: ['soup', 'tomato', 'lunch', 'vegetarian'],
   },
+=======
+    address: 'Kontraktova Sq 4, Podil, Kyiv',
+    lat: 50.4637, lng: 30.5164,
+    description: 'Tomatoes, cream, and crispy ciabatta',
+    price: 9.5, rating: '4.7', time: '20',
+    image: 'photo-1547592180-85f173990554',
+    tag: 'Comfort classic',
+    keywords: ['soup', 'tomato', 'lunch', 'vegetarian', 'light'],
+  },
+
+  // ── Shevchenkivskyi ──────────────────────────────────────────────────────────
+  {
+    id: 'green-bowl',
+    name: 'Green Avocado Bowl',
+    restaurant: 'Greenery',
+    address: 'Volodymyrska St 21, Shevchenkivskyi, Kyiv',
+    lat: 50.4543, lng: 30.5179,
+    description: 'Avocado, quinoa, seasonal vegetables',
+    price: 12.5, rating: '4.8', time: '20',
+    image: 'photo-1512621776951-a57141f2eefd',
+    tag: 'Light pick',
+    keywords: ['bowl', 'avocado', 'salad', 'vegan', 'healthy'],
+  },
+  {
+    id: 'veggie-wrap',
+    name: 'Grilled Veggie Wrap',
+    restaurant: 'Greenery',
+    address: 'Volodymyrska St 21, Shevchenkivskyi, Kyiv',
+    lat: 50.4543, lng: 30.5179,
+    description: 'Roasted peppers, hummus, spinach in whole-wheat tortilla',
+    price: 10.9, rating: '4.6', time: '15',
+    image: 'photo-1626700051175-6818013e1d4f',
+    tag: 'Quick bite',
+    keywords: ['wrap', 'vegetarian', 'vegan', 'healthy', 'lunch'],
+  },
+
+  // ── Pechersk ─────────────────────────────────────────────────────────────────
+  {
+    id: 'salmon-rice',
+    name: 'Salmon, Rice & Greens',
+    restaurant: 'Sea Within',
+    address: 'Lesi Ukrainky Blvd 7, Pechersk, Kyiv',
+    lat: 50.4423, lng: 30.5367,
+    description: 'Oven-baked salmon with jasmine rice',
+    price: 18.9, rating: '4.9', time: '30',
+    image: 'photo-1467003909585-2f8a72700288',
+    tag: "Chef's pick",
+    keywords: ['salmon', 'fish', 'rice', 'dinner', 'seafood', 'healthy'],
+  },
+  {
+    id: 'shrimp-pasta',
+    name: 'Garlic Shrimp Pasta',
+    restaurant: 'Sea Within',
+    address: 'Lesi Ukrainky Blvd 7, Pechersk, Kyiv',
+    lat: 50.4423, lng: 30.5367,
+    description: 'Linguine, tiger shrimp, white wine garlic sauce',
+    price: 21.5, rating: '4.8', time: '25',
+    image: 'photo-1563379926898-05f4575a45d8',
+    tag: 'Date night',
+    keywords: ['shrimp', 'pasta', 'seafood', 'garlic', 'dinner', 'italian'],
+  },
+
+  // ── Obolon ───────────────────────────────────────────────────────────────────
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   {
     id: 'chicken-curry',
     name: 'Spicy Chicken Curry',
     restaurant: 'House of Spice',
+<<<<<<< HEAD
     description: 'Chicken, coconut curry, and basmati rice',
     price: 15.5,
     rating: '4.8',
@@ -70,5 +157,182 @@ export const menu = [
     image: 'photo-1568901346375-23c9450c58cd',
     tag: 'Hearty lunch',
     keywords: ['burger', 'beef', 'meat', 'filling', 'lunch'],
+=======
+    address: 'Minska St 3, Obolon, Kyiv',
+    lat: 50.5008, lng: 30.4983,
+    description: 'Chicken, coconut curry, and basmati rice',
+    price: 15.5, rating: '4.8', time: '30',
+    image: 'photo-1603894584373-5ac82b2ae398',
+    tag: 'Warm & cozy',
+    keywords: ['spicy', 'curry', 'chicken', 'meat', 'rice', 'indian'],
+  },
+  {
+    id: 'lamb-kebab',
+    name: 'Lamb Kebab Platter',
+    restaurant: 'House of Spice',
+    address: 'Minska St 3, Obolon, Kyiv',
+    lat: 50.5008, lng: 30.4983,
+    description: 'Grilled lamb skewers, flatbread, tzatziki',
+    price: 19.9, rating: '4.7', time: '35',
+    image: 'photo-1504674900247-0877df9cc836',
+    tag: 'Weekend special',
+    keywords: ['kebab', 'lamb', 'meat', 'grilled', 'spicy', 'middle eastern'],
+  },
+
+  // ── Khreshchatyk ─────────────────────────────────────────────────────────────
+  {
+    id: 'beef-burger',
+    name: 'Beef & Cheddar Burger',
+    restaurant: 'Buns & Embers',
+    address: 'Khreshchatyk St 15, Kyiv',
+    lat: 50.4481, lng: 30.5238,
+    description: 'Angus beef, cheddar, and smoky barbecue sauce',
+    price: 16.5, rating: '4.9', time: '25',
+    image: 'photo-1568901346375-23c9450c58cd',
+    tag: 'Hearty lunch',
+    keywords: ['burger', 'beef', 'meat', 'filling', 'lunch', 'bbq'],
+  },
+  {
+    id: 'chicken-burger',
+    name: 'Crispy Chicken Burger',
+    restaurant: 'Buns & Embers',
+    address: 'Khreshchatyk St 15, Kyiv',
+    lat: 50.4481, lng: 30.5238,
+    description: 'Buttermilk fried chicken, coleslaw, pickles',
+    price: 13.9, rating: '4.8', time: '20',
+    image: 'photo-1606755962773-d324e0a13086',
+    tag: 'Fan favorite',
+    keywords: ['burger', 'chicken', 'crispy', 'fried', 'lunch'],
+  },
+
+  // ── Holosiivskyi ─────────────────────────────────────────────────────────────
+  {
+    id: 'beef-ramen',
+    name: 'Spicy Beef Ramen',
+    restaurant: 'Ramen & Co',
+    address: 'Holosiivska St 8, Holosiivskyi, Kyiv',
+    lat: 50.4145, lng: 30.5234,
+    description: 'Slow-braised beef, soft egg, nori, spicy miso broth',
+    price: 14.5, rating: '4.9', time: '20',
+    image: 'photo-1569718212165-3a8278d5f624',
+    tag: 'House specialty',
+    keywords: ['ramen', 'beef', 'soup', 'japanese', 'spicy', 'noodles'],
+  },
+  {
+    id: 'veggie-ramen',
+    name: 'Mushroom & Tofu Ramen',
+    restaurant: 'Ramen & Co',
+    address: 'Holosiivska St 8, Holosiivskyi, Kyiv',
+    lat: 50.4145, lng: 30.5234,
+    description: 'Shiitake mushrooms, silken tofu, sesame oil, veggie dashi',
+    price: 12.9, rating: '4.7', time: '20',
+    image: 'photo-1547592166-23ac45744acd',
+    tag: 'Vegan option',
+    keywords: ['ramen', 'mushroom', 'tofu', 'vegan', 'vegetarian', 'japanese'],
+  },
+
+  // ── Lypky (Government Quarter) ───────────────────────────────────────────────
+  {
+    id: 'sushi-set',
+    name: 'Classic Sushi Set',
+    restaurant: 'Tokyo Garden',
+    address: 'Instytutska St 16, Lypky, Kyiv',
+    lat: 50.4449, lng: 30.5269,
+    description: 'Salmon nigiri, tuna rolls, cucumber maki',
+    price: 22.0, rating: '4.8', time: '25',
+    image: 'photo-1579871494447-9811cf80d66c',
+    tag: 'Fresh daily',
+    keywords: ['sushi', 'japanese', 'fish', 'salmon', 'tuna', 'seafood'],
+  },
+  {
+    id: 'udon-bowl',
+    name: 'Tempura Udon Bowl',
+    restaurant: 'Tokyo Garden',
+    address: 'Instytutska St 16, Lypky, Kyiv',
+    lat: 50.4449, lng: 30.5269,
+    description: 'Thick udon noodles, prawn tempura, dashi broth',
+    price: 17.5, rating: '4.7', time: '20',
+    image: 'photo-1569718212165-3a8278d5f624',
+    tag: 'Warming bowl',
+    keywords: ['udon', 'noodles', 'japanese', 'soup', 'tempura', 'prawn'],
+  },
+
+  // ── Sviatoshyn ───────────────────────────────────────────────────────────────
+  {
+    id: 'margherita',
+    name: 'Margherita Pizza',
+    restaurant: 'Forno Pizza',
+    address: 'Peremohy Ave 67, Sviatoshyn, Kyiv',
+    lat: 50.4591, lng: 30.3897,
+    description: 'San Marzano tomato, buffalo mozzarella, fresh basil',
+    price: 13.5, rating: '4.8', time: '25',
+    image: 'photo-1513104890138-7c749659a591',
+    tag: 'Classic',
+    keywords: ['pizza', 'italian', 'vegetarian', 'cheese', 'tomato'],
+  },
+  {
+    id: 'pepperoni-pizza',
+    name: 'Pepperoni Pizza',
+    restaurant: 'Forno Pizza',
+    address: 'Peremohy Ave 67, Sviatoshyn, Kyiv',
+    lat: 50.4591, lng: 30.3897,
+    description: 'Crispy pepperoni, mozzarella, spicy tomato base',
+    price: 15.9, rating: '4.9', time: '25',
+    image: 'photo-1513104890138-7c749659a591',
+    tag: 'Most ordered',
+    keywords: ['pizza', 'pepperoni', 'meat', 'spicy', 'italian'],
+  },
+
+  // ── Troieshchyna ─────────────────────────────────────────────────────────────
+  {
+    id: 'beef-steak',
+    name: 'Ribeye Steak & Fries',
+    restaurant: 'Ember Grill',
+    address: 'Miloslavska St 2, Troieshchyna, Kyiv',
+    lat: 50.5112, lng: 30.6012,
+    description: '250g ribeye, truffle fries, peppercorn sauce',
+    price: 26.0, rating: '4.9', time: '35',
+    image: 'photo-1546964124-0cce460f38ef',
+    tag: 'Premium cut',
+    keywords: ['steak', 'beef', 'meat', 'grill', 'dinner', 'premium'],
+  },
+  {
+    id: 'chicken-wings',
+    name: 'BBQ Chicken Wings',
+    restaurant: 'Ember Grill',
+    address: 'Miloslavska St 2, Troieshchyna, Kyiv',
+    lat: 50.5112, lng: 30.6012,
+    description: 'Crispy wings, smoky BBQ glaze, blue cheese dip',
+    price: 14.0, rating: '4.7', time: '30',
+    image: 'photo-1606755962773-d324e0a13086',
+    tag: 'Game day',
+    keywords: ['wings', 'chicken', 'bbq', 'spicy', 'crispy', 'meat'],
+  },
+
+  // ── Pozniaky ─────────────────────────────────────────────────────────────────
+  {
+    id: 'poke-bowl',
+    name: 'Tuna Poke Bowl',
+    restaurant: 'Bowl District',
+    address: 'Mykoly Bazhana Ave 14, Pozniaky, Kyiv',
+    lat: 50.4025, lng: 30.6147,
+    description: 'Sashimi tuna, edamame, pickled ginger, sriracha mayo',
+    price: 16.9, rating: '4.8', time: '15',
+    image: 'photo-1512621776951-a57141f2eefd',
+    tag: 'Fresh & fast',
+    keywords: ['poke', 'bowl', 'tuna', 'fish', 'healthy', 'japanese', 'rice'],
+  },
+  {
+    id: 'acai-bowl',
+    name: 'Açaí Power Bowl',
+    restaurant: 'Bowl District',
+    address: 'Mykoly Bazhana Ave 14, Pozniaky, Kyiv',
+    lat: 50.4025, lng: 30.6147,
+    description: 'Açaí, banana, granola, honey, fresh berries',
+    price: 11.5, rating: '4.7', time: '10',
+    image: 'photo-1512621776951-a57141f2eefd',
+    tag: 'Breakfast',
+    keywords: ['bowl', 'acai', 'vegan', 'healthy', 'breakfast', 'fruit'],
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   },
 ]

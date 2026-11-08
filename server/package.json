@@ -4,9 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --test",
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "test": "node --experimental-sqlite --env-file=.env --test",
+    "start": "node --experimental-sqlite --env-file=.env src/index.js",
+    "dev": "nodemon --experimental-sqlite --env-file=.env src/index.js"
   },
   "author": "",
   "license": "ISC",

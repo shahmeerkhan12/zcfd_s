@@ -35,6 +35,26 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
+@media (hover: hover) {
+  button:not(:disabled):hover {
+    filter: brightness(0.9);
+  }
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #456b49;
+  outline-offset: 3px;
+}
+
+.search-input:focus-visible {
+  outline: none;
+}
+
 ::selection {
   color: #233126;
   background: #d7e5d4;

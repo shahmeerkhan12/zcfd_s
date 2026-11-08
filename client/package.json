@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.14.0",
+<<<<<<< HEAD
+=======
+    "firebase": "^12.0.0",
+>>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-redux": "^9.3.1"
@@ -23,5 +27,8 @@
     "oxlint": "^1.89.0",
     "tailwindcss": "^4.1.13",
     "vite": "^8.3.5"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "^1.13.6"
   }
 }
