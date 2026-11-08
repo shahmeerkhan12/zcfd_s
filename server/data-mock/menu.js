@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-export const menu = [
-=======
 /**
  * Mock menu data — 20 real Kyiv restaurants with accurate GPS coordinates.
  * Spread across all major city neighbourhoods.
@@ -9,44 +6,10 @@ export const menu = [
  */
 export const menu = [
   // ── Podil ────────────────────────────────────────────────────────────────────
->>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   {
     id: 'mushroom-pasta',
     name: 'Wild Mushroom Pasta',
     restaurant: 'The Cozy Table',
-<<<<<<< HEAD
-    description: 'Pappardelle, creamy sauce, aged parmesan',
-    price: 14.9,
-    rating: '4.9',
-    time: '25–35 min',
-    image: 'photo-1473093295043-cdd812d0e601',
-    tag: 'Weekly favorite',
-    keywords: ['pasta', 'mushroom', 'creamy', 'vegetarian', 'dinner'],
-  },
-  {
-    id: 'green-bowl',
-    name: 'Green Avocado Bowl',
-    restaurant: 'Greenery',
-    description: 'Avocado, quinoa, seasonal vegetables',
-    price: 12.5,
-    rating: '4.8',
-    time: '20–30 min',
-    image: 'photo-1512621776951-a57141f2eefd',
-    tag: 'Light pick',
-    keywords: ['bowl', 'avocado', 'salad', 'vegetables', 'light', 'meat-free', 'vegan'],
-  },
-  {
-    id: 'salmon-rice',
-    name: 'Salmon, Rice & Greens',
-    restaurant: 'Sea Within',
-    description: 'Oven-baked salmon with jasmine rice',
-    price: 18.9,
-    rating: '4.9',
-    time: '30–40 min',
-    image: 'photo-1467003909585-2f8a72700288',
-    tag: 'Chef’s pick',
-    keywords: ['salmon', 'fish', 'rice', 'dinner'],
-=======
     address: 'Kontraktova Sq 4, Podil, Kyiv',
     lat: 50.4637, lng: 30.5164,
     description: 'Pappardelle, creamy sauce, aged parmesan',
@@ -54,22 +17,11 @@ export const menu = [
     image: 'photo-1473093295043-cdd812d0e601',
     tag: 'Weekly favorite',
     keywords: ['pasta', 'mushroom', 'creamy', 'vegetarian', 'dinner', 'italian'],
->>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   },
   {
     id: 'tomato-soup',
     name: 'Tomato Basil Soup',
     restaurant: 'The Cozy Table',
-<<<<<<< HEAD
-    description: 'Tomatoes, cream, and crispy ciabatta',
-    price: 9.5,
-    rating: '4.7',
-    time: '20–30 min',
-    image: 'photo-1547592180-85f173990554',
-    tag: 'Comfort classic',
-    keywords: ['soup', 'tomato', 'lunch', 'vegetarian'],
-  },
-=======
     address: 'Kontraktova Sq 4, Podil, Kyiv',
     lat: 50.4637, lng: 30.5164,
     description: 'Tomatoes, cream, and crispy ciabatta',
@@ -132,32 +84,10 @@ export const menu = [
   },
 
   // ── Obolon ───────────────────────────────────────────────────────────────────
->>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   {
     id: 'chicken-curry',
     name: 'Spicy Chicken Curry',
     restaurant: 'House of Spice',
-<<<<<<< HEAD
-    description: 'Chicken, coconut curry, and basmati rice',
-    price: 15.5,
-    rating: '4.8',
-    time: '30–40 min',
-    image: 'photo-1603894584373-5ac82b2ae398',
-    tag: 'Warm & cozy',
-    keywords: ['spicy', 'curry', 'chicken', 'meat', 'rice', 'bold flavors'],
-  },
-  {
-    id: 'beef-burger',
-    name: 'Beef & Cheddar Burger',
-    restaurant: 'Buns & Embers',
-    description: 'Angus beef, cheddar, and smoky barbecue sauce',
-    price: 16.5,
-    rating: '4.9',
-    time: '25–35 min',
-    image: 'photo-1568901346375-23c9450c58cd',
-    tag: 'Hearty lunch',
-    keywords: ['burger', 'beef', 'meat', 'filling', 'lunch'],
-=======
     address: 'Minska St 3, Obolon, Kyiv',
     lat: 50.5008, lng: 30.4983,
     description: 'Chicken, coconut curry, and basmati rice',
@@ -333,6 +263,5 @@ export const menu = [
     image: 'photo-1512621776951-a57141f2eefd',
     tag: 'Breakfast',
     keywords: ['bowl', 'acai', 'vegan', 'healthy', 'breakfast', 'fruit'],
->>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   },
 ]

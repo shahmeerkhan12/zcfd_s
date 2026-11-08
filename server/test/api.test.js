@@ -3,10 +3,7 @@ import { after, before, test } from 'node:test'
 import { createApp } from '../src/index.js'
 import { getOrderStatus } from '../src/modules/orders/helpers.js'
 import { TtlCache } from '../src/shared/cache/ttlCache.js'
-<<<<<<< HEAD
-=======
 import { createFeedEtag } from '../src/modules/restaurants/feedController.js'
->>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
 
 const app = createApp()
 let server

@@ -1,20 +1,12 @@
 import crypto from 'node:crypto';
 import { findMenuItem, findOrder, insertOrder } from '../../database/database.js'
-<<<<<<< HEAD
-=======
 import { findGeneratedItem } from '../restaurants/runtimeMenu.js'
 import { findRuntimeOrder, saveRuntimeOrder } from './runtimeOrders.js'
->>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
 import { getOrderStatus } from "./helpers.js";
 
 export const createOrder = (request, response) => {
   
   const PAYMENT_METHODS = new Set(['on_delivery', 'demo_card']);
-<<<<<<< HEAD
-  const { itemId, customerName, address, paymentMethod } = request.body || {}
-  const item = findMenuItem(itemId)
-  if (!item) return response.status(400).json({ error: 'Choose a dish from the menu.' })
-=======
   const { itemId, itemIds, customerName, address, paymentMethod } = request.body || {}
   if (itemIds !== undefined && itemId !== undefined) {
     return response.status(400).json({ error: 'Choose either one dish or a list of dishes.' })
@@ -30,7 +22,6 @@ export const createOrder = (request, response) => {
   })
   if (entries.some(({ item }) => !item)) return response.status(400).json({ error: 'Some selected dishes are no longer available. Remove them or search again.' })
   const item = entries[0].item
->>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   if (typeof customerName !== 'string' || customerName.trim().length < 2 || customerName.trim().length > 80) {
     return response.status(400).json({ error: 'Enter a name between 2 and 80 characters.' })
   }
@@ -42,14 +33,10 @@ export const createOrder = (request, response) => {
   }
 
   const createdAt = Date.now()
-<<<<<<< HEAD
-  const trackingNumber = `SPN-${crypto.randomBytes(3).toString('hex').toUpperCase()}`
-=======
   let trackingNumber
   do {
     trackingNumber = `SPN-${crypto.randomBytes(3).toString('hex').toUpperCase()}`
   } while (findRuntimeOrder(trackingNumber) || findOrder(trackingNumber))
->>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
   const order = {
     trackingNumber,
     customerName: customerName.trim(),
@@ -65,21 +52,6 @@ export const createOrder = (request, response) => {
     },
     createdAt: new Date(createdAt).toISOString(),
   }
-<<<<<<< HEAD
-  insertOrder({
-    trackingNumber,
-    customerName: order.customerName,
-    address: order.address,
-    paymentMethod: order.paymentMethod,
-    paymentStatus: order.paymentStatus,
-    status: order.status,
-    restaurantId: item.restaurant_id,
-    menuItemId: item.id,
-    totalAmount: item.price,
-    createdAt: order.createdAt,
-    createdAtMs: createdAt,
-  })
-=======
   if (entries.length > 1) {
     order.items = entries.map(({ item }) => ({
       id: item.id,
@@ -106,20 +78,16 @@ export const createOrder = (request, response) => {
       createdAtMs: createdAt,
     })
   }
->>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
 
   return response.status(201).json({ order })
 }
 
 export const getStatus=(request, response) => {
-<<<<<<< HEAD
-=======
     const runtimeOrder = findRuntimeOrder(request.params.trackingNumber)
     if (runtimeOrder) {
       const { createdAtMs, ...order } = runtimeOrder
       return response.json({ order: { ...order, status: getOrderStatus(createdAtMs) }, demo: true })
     }
->>>>>>> 0ef0f656d58cf159f9148f5655e3a92243de1208
     const storedOrder = findOrder(request.params.trackingNumber);
     if (!storedOrder) return response.status(404).json({ error: 'No order found with that tracking number.' });
     const { createdAtMs, itemId, itemName, itemRestaurant, itemPrice, ...publicOrder } = storedOrder;
